@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+
+  <html lang="en">
+
+  <head>
+
+      <meta charset="UTF-8">
+
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+      <link href="index.css" rel="stylesheet" />
+
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+      <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-firestore.js"></script>
+        <script src="firebase.js"></script>
+        <script src="index.js"></script>
+      
+
+      <title>Streak</title>
+
+  </head>
+
+  <body>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="homepage.html">Quiz <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="rankings.html">Chat Room></a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <a href="index.html"><button class="btn btn-outline-dark" type="submit">Logout</button></a>
+        </form>
+    </div>
+
+      <div class="popup">
+          <div class="popup-content">
+              <h1> Streak </h1>
+              <input id = "user" type="text" placeholder="Email">
+              <input id = "password" type="password" placeholder="Password">
+              <button class="btn btn-dark" id="login" type="submit">Login</button>
+              <button type="button" class="btn btn-outline-secondary" id="createaccount" type="submit">Create an Account</button>
+
+              <script>
+                const userInfo = [];
+                window.onload = () => {
+                  document.getElementById("login").addEventListener("click", signIn);
+                  document
+                    .getElementById("createaccount")
+                    .addEventListener("click", createAccount);
+                };
+                
+                const signIn = () => {
+                  auth.signInWithEmailAndPassword(document.getElementById('user').value, document.getElementById("password").value)
+                  .then(user => {
+                    if (user) {
+                      console.log(user);
+                      userInfo.push(user);
+                      window.location.href = "/homepage.html";
+                    }
+                  }).catch(err => {
+                    alert(err.message);
+                  })
+                }
+
+                const createAccount = () => {
+                      window.location.href = "/signup.html";
+                }
+              </script>
+          </div>
+      </div>
+  </body>
+</html>

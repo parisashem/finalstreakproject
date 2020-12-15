@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="homepage.css" rel="stylesheet" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+       
+        <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-firestore.js"></script>
+        <script src="firebase.js"></script>
+
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+        <title>Streak</title>
+    </head>
+
+    <body>
+        <div id="nav"></div><nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="homepage.html">Streak</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="/homepage.html">Quiz <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/scoreboard.html">Voting Results</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/rankings.html">Chatroom</a>
+                </li>
+              </ul>
+              <form class="form-inline my-2 my-lg-0">
+                <button class="btn btn-outline-dark" type="submit" id="logout">Logout</button>
+              </form>
+            </div>
+        </nav>
+
+        <div id="prize">
+          <h1> STREAK </h1>
+          <h3>PRIZE FOR THIS MONTH: $5000</h3>
+          <span>Read and answer the questions first, unlock the videos by clicking the button below, and then click to check your results at the end</span><br>
+          <span>NOTE: 5 second time limit begins once an answer has been selected</span>
+        </div>
+
+        <div id="questionnaire">
+          <div id="table">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col">Time Locks In:</th>
+                  <th scope="col">Question</th>
+                  <th scope="col">Options</th>
+                  <!-- <th scope="col"></th> -->
+                </tr>
+              </thead>
+              <tbody id="tablebody">
+                  <script src="homepage.js"></script>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <button" class="btn btn-dark" id="submit-videos" type="submit">CLICK HERE TO SUBMIT YOUR ANSWERS AND TO UNLOCK VIDEOS</button>
+          </div>
+
+          <div id="videos">
+            <div id="leftvideo">
+              <p>QUESTIONS #1-4</p>
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/i7zsNFE0C2I" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div id="rightvideo">
+              <p>QUESTIONS #5-8</p>
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/T45aF1NLMyM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+          <div>
+            <button" class="btn btn-dark" id="submit" type="submit">CLICK HERE TO CHECK YOUR ANSWERS</button>
+          </div>
+        </div>
+    </body>
+</html>

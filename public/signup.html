@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link href="index.css" rel="stylesheet" />
+        <!-- <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
+       <!-- The core Firebase JS SDK is always required and must be listed first -->
+
+        <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-firestore.js"></script>
+        <script src="firebase.js"></script>
+        <!-- <script src="signup.js"></script> -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        
+        <!-- <script>
+            // Initialize Cloud Firestore through Firebase
+            var firebaseConfig = {
+    
+                apiKey: "AIzaSyDNt6ESq-Kxkw6T_a65TAW4pMjQUsEegPE",
+                authDomain: "final-project-298122.firebaseapp.com",
+                projectId: "final-project-298122",
+                storageBucket: "final-project-298122.appspot.com",
+                messagingSenderId: "93701911203",
+                appId: "1:93701911203:web:395aad3c3dadf96e9d8516"
+            };
+            firebase.initializeApp(firebaseConfig);
+            var db = firebase.firestore();
+
+            db.collection("users").add({
+                username: 'test',
+                score: 100
+            })
+            .then(function(docRef) {
+                console.log("Document written with ID: ", docRef.id);
+            })
+            .catch(function(error) {
+                console.error("Error adding document: ", error);
+            });
+
+        </script>
+
+        <script src="signup.js"></script> -->
+
+        <title>Streak</title>
+    </head>
+
+    <body>
+        <div class="popup">
+            <div class="popup-content">
+                <h1> Streak </h1>
+                <input id = "user" type="text" placeholder="Email">
+                <input id = "password" type="password" placeholder="Password">
+                <button" class="btn btn-dark" id="createaccount" type="submit">Create Account</button>
+  
+                <script>
+                    const userInfo = [];
+
+                    window.onload = () => {
+                        document
+                        .getElementById("createaccount")
+                        .addEventListener("click", createAccount);
+                    };
+
+                    const createAccount = () => {
+                        auth.createUserWithEmailAndPassword(document.getElementById('user').value, document.getElementById("password").value)
+                        .then((user) => {
+                            if (user) {
+                                userInfo.push(user.user);
+                                window.location.href = "/homepage.html";
+                                const storeUid = () => {
+                                    db.collection("userIdentifiers").doc().set({
+                                        id: userInfo[0].uid,
+                                    });
+                                };
+                                storeUid();
+                            }
+                        })
+                        .catch((err) => {
+                            alert(err.message);
+                        });
+                    }
+                </script>
+            </div>
+        </div>
+    </body>
+</html>
